@@ -2178,7 +2178,7 @@ static int __do_proc_dointvec(void *tbl_data, struct ctl_table *table,
 	int *i, vleft, first = 1, err = 0;
 	unsigned long page = 0;
 	size_t left;
-	char *kbuf;
+	char *kbuf = NULL;
 	
 	if (!tbl_data || !table->maxlen || !*lenp || (*ppos && !write)) {
 		*lenp = 0;
@@ -2428,7 +2428,7 @@ static int __do_proc_doulongvec_minmax(void *data, struct ctl_table *table, int 
 	int vleft, first = 1, err = 0;
 	unsigned long page = 0;
 	size_t left;
-	char *kbuf;
+	char *kbuf = NULL;
 
 	if (!data || !table->maxlen || !*lenp || (*ppos && !write)) {
 		*lenp = 0;

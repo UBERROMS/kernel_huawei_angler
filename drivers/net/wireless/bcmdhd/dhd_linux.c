@@ -4463,7 +4463,7 @@ dhd_allocate_if(dhd_pub_t *dhdpub, int ifidx, char *name,
 	uint8 *mac, uint8 bssidx, bool need_rtnl_lock)
 {
 	dhd_info_t *dhdinfo = (dhd_info_t *)dhdpub->info;
-	dhd_if_t *ifp;
+	dhd_if_t *ifp = NULL;
 
 	if((dhdinfo == NULL) || (ifidx >= DHD_MAX_IFS))
 		goto fail;
@@ -9228,7 +9228,7 @@ dhd_dev_apf_enable_filter(struct net_device *ndev)
 {
 	dhd_info_t *dhd = DHD_DEV_INFO(ndev);
 	dhd_pub_t *dhdp = &dhd->pub;
-	int ret;
+	int ret = 0;
 
 	DHD_APF_LOCK(ndev);
 
@@ -9247,7 +9247,7 @@ dhd_dev_apf_disable_filter(struct net_device *ndev)
 {
 	dhd_info_t *dhd = DHD_DEV_INFO(ndev);
 	dhd_pub_t *dhdp = &dhd->pub;
-	int ret;
+	int ret = 0;
 
 	DHD_APF_LOCK(ndev);
 
@@ -9266,7 +9266,7 @@ dhd_dev_apf_delete_filter(struct net_device *ndev)
 {
 	dhd_info_t *dhd = DHD_DEV_INFO(ndev);
 	dhd_pub_t *dhdp = &dhd->pub;
-	int ret;
+	int ret = 0;
 
 	DHD_APF_LOCK(ndev);
 
